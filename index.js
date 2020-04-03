@@ -1,15 +1,20 @@
 const fs = require('fs')
-const cookies = require('./pre-checked.json')
+cookies = require('./pre-checked.json')
 
-let cookiesremoved = 0
+cookies = cookies.map(cookie => cookie.cookie)
+
+cookies = cookies.filter((item, index) => cookies.indexOf(item) === index);
+
+console.log(cookies);
+let objArray = []
 for (let i = 0; i < cookies.length; i++){
-  for (let item of cookies){
-    if (cookies[i].cookie == item.cookie) {
-      cookies.splice(i, 1)
-      cookiesremoved += 1
-    }
+  let obj = {
+    cookie: cookies[i],
+    site: "YeezySupply"
   }
+  objArray.push(obj)
 }
-fs.writeFileSync('./checked-cookies.json', JSON.stringify(cookies))
 
-console.log(`removed ${cookiesremoved} cookies`);
+fs.writeFileSync('./checked-cookies.json', JSON.stringify(objArray))
+
+console.log("Removed Duplicates!");
