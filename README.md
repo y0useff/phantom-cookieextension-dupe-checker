@@ -1,4 +1,5 @@
 # phantom-cookieextension-dupe-checker
+# ONLY WORKS ON YEEZY SUPPLY
 checks for duplicate cookies extracted from the phantom cookie harvester
 
 HOW TO USE
